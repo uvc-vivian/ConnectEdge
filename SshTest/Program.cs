@@ -82,6 +82,12 @@ namespace SshNet
     {
         static void Main(string[] args)
         {
+            DoosanConnect();
+            KukaConnect();
+        }
+
+        static void DoosanConnect()
+        {
             //Doosan config
             string doosanName = "DOOSAN";
             string doosanAddress = "10.20.193.62";
@@ -91,7 +97,9 @@ namespace SshNet
             string doosanPath = "/home/advantech/SmartConnector";
             AccessSsh doosan = new AccessSsh(doosanName, doosanAddress, doosanPort, doosanUser, doosanPw, doosanPath);
             doosan.ConnectEdge();
-
+        }
+        static void KukaConnect()
+        {
             //KUKA config
             string kukaName = "KUKA";
             string kukaAddress = "10.20.193.101";
