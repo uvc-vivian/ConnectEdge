@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+using System.Threading;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Renci.SshNet;
 using Renci.SshNet.Sftp;
@@ -82,8 +84,13 @@ namespace SshNet
     {
         static void Main(string[] args)
         {
-            KukaConnect();
-            DoosanConnect();
+            ThreadStart ts1 = new ThreadStart(DoosanConnect);
+            Thread doosan = new Thread(ts1);
+            doosan.Start();
+
+            ThreadStart ts2 = new ThreadStart(KukaConnect);
+            Thread kuka = new Thread(ts2);
+            kuka.Start();
         }
 
         static void DoosanConnect()
