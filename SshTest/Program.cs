@@ -67,6 +67,10 @@ namespace SshNet
                             shellStream.WriteLine("sudo sh stop.sh");
                             output = shellStream.Expect(new Regex(@"([$#>:])"));
                             shellStream.WriteLine(password);
+                            while ((line = shellStream.ReadLine(TimeSpan.FromSeconds(2))) != null)
+                            {
+                                Console.WriteLine(line);
+                            }
                             Console.WriteLine($"\r\n--- {name}SmartConnector Stopped ---");
                             client.Disconnect();
                         }
