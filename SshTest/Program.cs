@@ -82,8 +82,8 @@ namespace SshNet
     {
         static void Main(string[] args)
         {
-            DoosanConnect();
             KukaConnect();
+            DoosanConnect();
         }
 
         static void DoosanConnect()
