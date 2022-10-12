@@ -50,7 +50,7 @@ namespace SshNet
                 shellStream.WriteLine(password);
 
                 string line;
-                while ((line = shellStream.ReadLine()) != null)
+                while ((line = shellStream.ReadLine(TimeSpan.FromSeconds(2))) != null)
                 {
                     Console.WriteLine(line);
                 }
